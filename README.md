@@ -24,6 +24,8 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 ## Functionality
 
-    This is pantry management app which adds, removes and update the data from database based on firebase. 
+This is pantry management app which adds, removes and update the data from database based on firebase. 
 
-    The database management used is firebase where one field is count to display quantity of each item in the pantry.
+The database management used is firebase where one field is count to display quantity of each item in the pantry.
+
+The frontend framework is React.js and backend is Nextjs.
