@@ -136,7 +136,7 @@ export default function Home() {
             font: "Sans-serif",
           }}
         >
-          Here's what's happening with your store today.
+          Here&apos;s what&apos;s happening with your store today.
         </div>
       </Stack>
       <Box
