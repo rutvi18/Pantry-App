@@ -56,8 +56,6 @@ export default function Home() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  //const updateLine = false;
-
   const [itemName, setItemName] = useState("");
 
   const updatePantry = async () => {
@@ -159,8 +157,7 @@ export default function Home() {
           component="h2"
           sx={{ paddingX: "20px", marginBottom: "10px" }}
         >
-          {" "}
-          Products{" "}
+          Products
         </Typography>
         <Container className="search-container" maxWidth="sm">
           <form onSubmit={handleSearch}>
@@ -223,8 +220,8 @@ export default function Home() {
                   handleClose();
                 }}
               >
-                {" "}
-                Add{" "}
+                
+                Add
               </Button>
             </Stack>
             <Typography
