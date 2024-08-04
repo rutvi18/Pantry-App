@@ -13,14 +13,6 @@ You can start editing the page by modifying `app/page.js`. The page auto-updates
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
 ## Functionality
 
@@ -28,4 +20,4 @@ This is pantry management app which adds, removes and update the data from datab
 
 The database management used is firebase where one field is count to display quantity of each item in the pantry.
 
-The frontend framework is React.js and backend is Nextjs.
+The frontend framework is React.js and backend is Nextjs. The database used is Firestore and the functionality to capture and upload image is also updated
