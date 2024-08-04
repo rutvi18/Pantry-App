@@ -24,9 +24,10 @@ import {
   query,
   getDoc,
 } from "firebase/firestore";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef} from "react";
 import AddIcon from "@mui/icons-material/Add";
 import DeleteIcon from "@mui/icons-material/Delete";
+import ImageCapture from "./components/imageCapture";
 
 
 const style = {
@@ -47,10 +48,15 @@ const style = {
 export default function Home() {
   //value for containing the value from search
   const [search, setSearch] = useState("");
-  const [results, setResults] = useState([]);
+
+  //for taking image
+  const camera = useRef(null);
+  const [image, setImage] = useState(null);
+  
   const [loading, setLoading] = useState(false);
 
   const [pantry, setPantry] = useState([]);
+  const [results, setResults] = useState(pantry);
 
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -92,7 +98,7 @@ export default function Home() {
 
     // Simulate a search API call
     setTimeout(async () => {
-      await updatePantry();
+      //await updatePantry();
 
       const itemNames = pantry.map((user) => user.name);
       const pantryResults = itemNames.filter((item) =>
@@ -100,6 +106,7 @@ export default function Home() {
       );
 
       setResults(pantryResults);
+      await updatePantry();
       setLoading(false);
     }, 1000);
   };
@@ -124,6 +131,7 @@ export default function Home() {
           id="modal-modal-title"
           variant="h3"
           component="h2"
+          style={{ color: "GrayText" }}
           ml={2}
           mt={2}
         >
@@ -184,7 +192,7 @@ export default function Home() {
                 ))
               ) : (
                 <ListItem>
-                  <ListItemText primary="No Results found!" disableTypography/>
+                  <ListItemText primary="No Results found!" disableTypography />
                 </ListItem>
               )}
             </List>
@@ -220,7 +228,6 @@ export default function Home() {
                   handleClose();
                 }}
               >
-                
                 Add
               </Button>
             </Stack>
@@ -230,24 +237,29 @@ export default function Home() {
             ></Typography>
           </Box>
         </Modal>
-        <Button
-          variant="contained"
-          onClick={handleOpen}
-          startIcon={<AddIcon />}
-        >
-          Add
-        </Button>
+        <Box>
+          <Button
+            variant="contained"
+            onClick={handleOpen}
+            startIcon={<AddIcon />}
+            style={{ marginRight: 5 }}
+          >
+            Add
+          </Button>
+          <ImageCapture />
+          
+        </Box>
 
         <Box border={"2px solid #333x"}>
           <Box
             width="800px"
             height="100px"
-            bgcolor={"#ADD8E6"}
+            bgcolor={"#003300"}
             display={"flex"}
             justifyContent={"center"}
             alignItems={"center"}
           >
-            <Typography variant={"h2"} color={"#333"} textAlign={"center"}>
+            <Typography variant={"h2"} color={"white"} textAlign={"center"}>
               Pantry Items
             </Typography>
           </Box>
@@ -260,7 +272,7 @@ export default function Home() {
                 display={"flex"}
                 justifyContent={"space-between"}
                 alignItems={"center"}
-                bgcolor={"#f0f0f0"}
+                bgcolor={"#ffff99"}
                 paddingX={5}
               >
                 <Typography variant={"h3"} color={"#333"} textAlign={"center"}>
